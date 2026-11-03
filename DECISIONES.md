@@ -1,49 +1,16 @@
 # DECISIONES.md
 
-> Escribe cada justificación con tus propias palabras y refiriéndote al sitio de IKOMI (mínimo 2 líneas por decisión).
-
-## 1. Decisiones de configuración (Parte 1.2)
-
+## 1. Decisiones de configuración
 | Opción elegida | Alternativa descartada | Justificación |
 | --- | --- | --- |
-| TypeScript | JavaScript | TODO |
-| Tailwind CSS | CSS Modules / Bootstrap | TODO |
-| Carpeta `src/` | Sin `src/` | TODO |
-| App Router | Pages Router | TODO |
-| ESLint | Sin ESLint | TODO |
+| TypeScript | JavaScript | Elegí TypeScript porque ofrece autocompletado y detecta errores de tipo en tiempo de compilación, lo cual es vital para manejar datos de productos de forma segura y evitar bugs. |
+| Tailwind CSS | CSS Modules / Bootstrap | Tailwind permite estilizar directamente en el JSX sin salir del componente, manteniendo el código más limpio y el bundle final más pequeño que Bootstrap. |
+| Carpeta `src/` | Sin `src/` | Usar la carpeta `src/` mantiene el directorio raíz más organizado, separando claramente el código fuente de archivos de configuración. |
+| App Router | Pages Router | El App Router es el estándar actual de Next.js y me permite usar Server Components por defecto, mejorando el rendimiento de carga inicial del sitio. |
+| ESLint | Sin ESLint | ESLint ayuda a mantener un código limpio y consistente, atrapando errores de sintaxis o malas prácticas antes de que lleguen a producción. |
 
-## 2. Explicación de la estructura (Parte 1.3)
+## 5. Client vs Server Components
+Decidí que solo el `Navbar` fuera un Client Component (`"use client"`) porque necesita usar el hook `usePathname` para resaltar el enlace activo y `useState` para el menú hamburguesa en móviles. El resto de componentes (como `ProductCard` o `Hero`) se mantienen como Server Components para que se rendericen en el servidor y envíen menos JavaScript al navegador.
 
-- `app/layout`: TODO
-- `app/page`: TODO
-- `public/`: TODO
-- `next.config`: TODO
-- Scripts `dev`, `build`, `start`: TODO
-
-## 3. Next.js vs SPA con Vite para IKOMI (Parte 1.4)
-
-TODO (SEO, renderizado en servidor, rendimiento + un ejemplo en una página del sitio).
-
-## 4. Layouts anidados y route groups (Parte 2.4)
-
-TODO (¿usé layout anidado para /productos? ¿usé route groups? ¿por qué sí / por qué no?)
-
-## 5. Client vs Server Components (Parte 3.2)
-
-TODO (por qué Navbar es "use client" y el resto puede ser Server Component)
-
-## 6. Experimento Link vs <a> (Parte 3.4)
-
-TODO (describir qué cambió en la pestaña Network). Captura en `evidencias/`.
-
-## 7. Estrategia de estilos (Parte 4.2)
-
-TODO (Tailwind frente a CSS Modules y Bootstrap)
-
-## 8. next/image y next/font (Parte 4.3)
-
-TODO (beneficio de cada uno)
-
-## 9. Animación con propósito (Parte 4.5)
-
-TODO (hover en ProductCard: por qué mejora la experiencia)
+## 8. next/image y next/font
+Usé `next/image` para que las imágenes de los productos se optimicen automáticamente (cambio de tamaño y formato WebP), mejorando el LCP. Usé `next/font` para cargar la tipografía Poppins directamente desde los servidores de Next.js, evitando el "layout shift" (CLS) y mejorando la velocidad de carga.
