@@ -2,10 +2,16 @@ type Props = { titulo: string; subtitulo?: string };
 
 export default function SectionTitle({ titulo, subtitulo }: Props) {
   return (
-    <div className="mb-8 text-center">
-      <h2 className="text-3xl font-bold text-brand">{titulo}</h2>
-      <div className="mx-auto mt-2 h-1 w-16 rounded bg-accent" />
-      {subtitulo && <p className="mt-3 text-gray-600">{subtitulo}</p>}
+    <div className="mb-12 text-center">
+      <h2 className="relative inline-block text-4xl font-extrabold text-slate-900 md:text-5xl">
+        {titulo}
+        <span className="absolute -bottom-3 left-1/2 h-1.5 w-24 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500"></span>
+      </h2>
+      {subtitulo && (
+        <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
+          {subtitulo}
+        </p>
+      )}
     </div>
   );
 }
