@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ikomi-next-delacruz
 
-## Getting Started
+Réplica del sitio corporativo de **IKOMI Perú** (https://www.ikomiperu.com/) con **Next.js (App Router)**.
+Proyecto de la Evaluación 03 – Desarrollo de Aplicaciones Web Avanzado (TECSUP).
 
-First, run the development server:
+## Qué hace el proyecto
+Sitio corporativo con páginas de Inicio, Nosotros, Servicios, Productos (con detalle dinámico), Marcas y Contacto, navegación responsive y página 404 personalizada.
 
+## Tecnologías
+Next.js (App Router) · TypeScript · Tailwind CSS · ESLint · carpeta `src/` · `next/image` · `next/font`
+
+## Instalación y ejecución
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # compilar para producción
+npm run start    # servir la compilación
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Despliegue
+TODO: enlace del despliegue (por ejemplo Vercel).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Rutas
+| Ruta | Archivo |
+| --- | --- |
+| `/` | `src/app/page.tsx` |
+| `/nosotros` | `src/app/nosotros/page.tsx` |
+| `/servicios` | `src/app/servicios/page.tsx` |
+| `/productos` | `src/app/productos/page.tsx` |
+| `/productos/[slug]` | `src/app/productos/[slug]/page.tsx` |
+| `/marcas` | `src/app/marcas/page.tsx` |
+| `/contacto` | `src/app/contacto/page.tsx` |
+| 404 | `src/app/not-found.tsx` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Árbol de componentes
+```
+RootLayout (Server)  src/app/layout.tsx
+├── Navbar (CLIENT)  usePathname + useState del menú
+├── main → page de cada ruta (Server)
+│   ├── Hero (Server)
+│   ├── SectionTitle (Server)
+│   ├── ProductCard (Server)  ← recibe "producto" por props
+│   └── ContactForm (Server)  ← solo interfaz
+└── Footer (Server)
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Documentación del proceso
+- [`DECISIONES.md`](./DECISIONES.md): qué elegí, qué descarté y por qué.
+- [`BITACORA_IA.md`](./BITACORA_IA.md): qué le pregunté a la IA, qué respondió y qué decidí.
+- [`evidencias/`](./evidencias): capturas (build, Network, responsive).
+- Historial de commits: cada parte del trabajo está en un commit propio.
