@@ -2,13 +2,56 @@
 
 @theme {
   --color-brand: #0a4d8c;
+  --color-brand-light: #1d6fc0;
   --color-brand-dark: #07355f;
   --color-accent: #f28c28;
+  --color-accent-dark: #d9741a;
   --color-soft: #f3f6fa;
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --animate-spin-slow: spin 14s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
   color: #1f2937;
+  background: #ffffff;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.bg-hero {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(29, 111, 192, 0.55) 0, transparent 45%),
+    radial-gradient(circle at 88% 80%, rgba(242, 140, 40, 0.35) 0, transparent 38%),
+    linear-gradient(135deg, #07355f 0%, #0a4d8c 100%);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

@@ -1,17 +1,14 @@
-type Props = { titulo: string; subtitulo?: string };
+type Props = { titulo: string; subtitulo?: string; etiqueta?: string };
 
-export default function SectionTitle({ titulo, subtitulo }: Props) {
+export default function SectionTitle({ titulo, subtitulo, etiqueta }: Props) {
   return (
-    <div className="mb-12 text-center">
-      <h2 className="relative inline-block text-4xl font-extrabold text-slate-900 md:text-5xl">
-        {titulo}
-        <span className="absolute -bottom-3 left-1/2 h-1.5 w-24 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500"></span>
-      </h2>
-      {subtitulo && (
-        <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
-          {subtitulo}
-        </p>
+    <div className="mx-auto mb-12 max-w-2xl text-center">
+      {etiqueta && (
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">{etiqueta}</p>
       )}
+      <h2 className="mb-4 text-3xl font-bold text-brand md:text-4xl">{titulo}</h2>
+      <div className="mx-auto mb-4 h-1 w-20 rounded-full bg-accent" />
+      {subtitulo && <p className="text-lg text-gray-600">{subtitulo}</p>}
     </div>
   );
 }

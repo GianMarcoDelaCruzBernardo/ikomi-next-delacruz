@@ -1,32 +1,12 @@
+import Link from "next/link";
+import { ArrowRight, Headset, Settings, Wrench } from "lucide-react";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import ProductCard from "@/components/ProductCard";
 import { productos } from "@/data/productos";
-import { Zap, Shield, Award, Clock } from "lucide-react";
 
 export default function Inicio() {
-  const features = [
-    {
-      icon: Zap,
-      title: "Alta Eficiencia",
-      description: "Equipos de última generación con máximo rendimiento energético"
-    },
-    {
-      icon: Shield,
-      title: "Garantía Extendida",
-      description: "Hasta 5 años de garantía en todos nuestros productos"
-    },
-    {
-      icon: Award,
-      title: "Calidad Certificada",
-      description: "Productos con certificación ISO y estándares internacionales"
-    },
-    {
-      icon: Clock,
-      title: "Soporte 24/7",
-      description: "Atención técnica permanente para nuestros clientes"
-    }
-  ];
+  const marcas = new Set(productos.map((p) => p.marca)).size;
 
   return (
     <>
@@ -35,60 +15,77 @@ export default function Inicio() {
         texto="Somos líderes en soluciones de ventilación y climatización industrial. Ofrecemos productos de la más alta calidad para mantener sus espacios con el mejor aire y temperatura."
       />
       
-      {/* Features Section */}
-      <section className="bg-gray-50 py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <div key={feature.title} className="group rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg transition-transform group-hover:scale-110 group-hover:rotate-3">
-                  <feature.icon className="h-8 w-8" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-slate-900">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
+      {/* Stats - Posicionado correctamente SIN overlap */}
+      <section className="relative z-10 mx-auto -mt-16 max-w-5xl px-4">
+        <div className="grid gap-6 sm:grid-cols-3">
+          {[
+            { n: "15+", t: "Años de experiencia" },
+            { n: String(productos.length), t: "Productos en catálogo" },
+            { n: String(marcas), t: "Marcas aliadas" },
+          ].map((d) => (
+            <div
+              key={d.t}
+              className="rounded-2xl bg-white p-6 text-center shadow-xl ring-1 ring-slate-100"
+            >
+              <p className="text-4xl font-bold text-brand">{d.n}</p>
+              <p className="mt-1 text-sm text-gray-600">{d.t}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="mx-auto max-w-7xl px-4 py-20">
-        <SectionTitle 
-          titulo="Productos Destacados" 
-          subtitulo="Descubre nuestra amplia gama de soluciones en ventilación y climatización para todo tipo de industrias"
+      {/* Productos destacados */}
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <SectionTitle
+          etiqueta="Catálogo"
+          titulo="Productos Destacados"
+          subtitulo="Descubre nuestra amplia gama de soluciones en ventilación"
         />
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {productos.slice(0, 3).map((p) => (
             <ProductCard key={p.slug} producto={p} />
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <a 
-            href="/productos" 
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-          >
-            Ver Todos los Productos
-          </a>
+        <div className="mt-10 text-center">
+          <Link href="/productos" className="inline-flex items-center gap-2 font-semibold text-brand hover:text-accent">
+            Ver todo el catálogo <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 to-slate-900 py-20">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      {/* Servicios rápidos */}
+      <section className="bg-soft py-16">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3">
+          {[
+            { icono: Wrench, titulo: "Instalación", texto: "Técnicos certificados y trabajo limpio." },
+            { icono: Settings, titulo: "Mantenimiento", texto: "Planes preventivos a tu medida." },
+            { icono: Headset, titulo: "Asesoría técnica", texto: "Ingenieros que eligen el equipo ideal." },
+          ].map(({ icono: Icono, titulo, texto }) => (
+            <div key={titulo} className="flex items-start gap-4 rounded-2xl bg-white p-6 shadow-sm">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                <Icono className="h-6 w-6" />
+              </span>
+              <div>
+                <h3 className="font-bold text-brand">{titulo}</h3>
+                <p className="text-sm text-gray-600">{texto}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-hero relative overflow-hidden py-20 text-white">
+        <div className="bg-grid absolute inset-0" aria-hidden="true" />
         <div className="relative mx-auto max-w-4xl px-4 text-center">
-          <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-            ¿Necesitas una solución personalizada?
-          </h2>
-          <p className="mb-8 text-lg text-gray-300">
-            Nuestro equipo de expertos está listo para asesorarte y encontrar la mejor solución para tu proyecto
-          </p>
-          <a 
-            href="/contacto" 
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-10 py-5 font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5"
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">¿Necesitas una solución personalizada?</h2>
+          <p className="mb-8 text-lg text-blue-100">Nuestro equipo de expertos está listo para asesorarte.</p>
+          <Link
+            href="/contacto"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-10 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-dark"
           >
-            Contáctanos Ahora
-          </a>
+            Contáctanos ahora <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
     </>

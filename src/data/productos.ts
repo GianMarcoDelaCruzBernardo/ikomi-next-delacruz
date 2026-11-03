@@ -9,52 +9,52 @@ export type Producto = {
 
 export const productos: Producto[] = [
   {
-    slug: "ventilador-industrial",
-    nombre: "Ventilador Industrial VF-2000",
-    marca: "IKOMI",
-    descripcion: "Ventilador industrial de alto rendimiento para aplicaciones comerciales e industriales. Motor trifásico de 2HP con aspas de aluminio balanceadas. Ideal para naves industriales, almacenes y centros comerciales.",
-    imagen: "https://images.unsplash.com/photo-1585771507490-74e6a59e444d?w=400&h=300&fit=crop",
-    precio: "S/ 1,299.00"
+    slug: "lamborghini-huracan",
+    nombre: "Lamborghini Huracán EVO",
+    marca: "Lamborghini",
+    descripcion: "Supercar italiano con motor V10 de 5.2L y 640 HP. Diseño aerodinámico agresivo y tecnología de punta.",
+    imagen: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&h=600&fit=crop",
+    precio: "$ 261,000",
   },
   {
-    slug: "extractor-aires",
-    nombre: "Extractor de Aires EA-500",
-    marca: "IKOMI",
-    descripcion: "Sistema de extracción de aire de alta eficiencia con control automático de humedad. Silencioso y de bajo consumo energético. Perfecto para baños, cocinas y áreas industriales.",
-    imagen: "https://images.unsplash.com/photo-1585771507490-74e6a59e444d?w=400&h=300&fit=crop",
-    precio: "S/ 899.00"
+    slug: "ferrari-488",
+    nombre: "Ferrari F8 Tributo",
+    marca: "Ferrari",
+    descripcion: "Deportivo de altas prestaciones con motor V8 biturbo de 3.9L y 720 HP. Velocidad máxima 340 km/h.",
+    imagen: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800&h=600&fit=crop",
+    precio: "$ 280,000",
   },
   {
-    slug: "sistema-ventilacion",
-    nombre: "Sistema de Ventilación SV-3000",
-    marca: "TechAir",
-    descripcion: "Sistema completo de ventilación mecánica con filtrado HEPA. Incluye ductos, rejillas de distribución y control digital. Garantiza la calidad del aire en espacios cerrados.",
-    imagen: "https://images.unsplash.com/photo-1585771507490-74e6a59e444d?w=400&h=300&fit=crop",
-    precio: "S/ 2,499.00"
+    slug: "porsche-911",
+    nombre: "Porsche 911 Turbo S",
+    marca: "Porsche",
+    descripcion: "Icono alemán con motor boxer 6 cilindros de 3.8L y 650 HP. Tracción integral y sistema PDK.",
+    imagen: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&h=600&fit=crop",
+    precio: "$ 230,000",
   },
   {
-    slug: "ventilador-techo",
-    nombre: "Ventilador de Techo VT-150",
-    marca: "IKOMI",
-    descripcion: "Ventilador de techo con diseño moderno y 5 aspas de madera. Control remoto incluido, 3 velocidades y luz LED integrada. Silencioso y de bajo consumo.",
-    imagen: "https://images.unsplash.com/photo-1513506003013-d5347e0f95ea?w=400&h=300&fit=crop",
-    precio: "S/ 459.00"
+    slug: "mclaren-720s",
+    nombre: "McLaren 720S",
+    marca: "McLaren",
+    descripcion: "Superdeportivo británico con motor V8 de 4.0L y 720 HP. Chasis monocasco de fibra de carbono.",
+    imagen: "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800&h=600&fit=crop",
+    precio: "$ 310,000",
   },
   {
-    slug: "extractor-pared",
-    nombre: "Extractor de Pared EP-800",
-    marca: "TechAir",
-    descripcion: "Extractor axial de pared para renovación constante de aire. Construcción en acero galvanizado con protección anticorrosiva. Ideal para restaurantes y locales comerciales.",
-    imagen: "https://images.unsplash.com/photo-1585771507490-74e6a59e444d?w=400&h=300&fit=crop",
-    precio: "S/ 679.00"
+    slug: "audi-r8",
+    nombre: "Audi R8 V10 Plus",
+    marca: "Audi",
+    descripcion: "Exclusivo deportivo con motor V10 de 5.2L y 610 HP. Quattro AWD y suspensión magnética.",
+    imagen: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop",
+    precio: "$ 208,000",
   },
   {
-    slug: "ventilador-centrifugo",
-    nombre: "Ventilador Centrífugo VC-1200",
-    marca: "IKOMI",
-    descripcion: "Ventilador centrífugo de alta presión para sistemas de climatización. Rodamiento sellado de por vida, motor de cobre 100% y protección térmica incorporada.",
-    imagen: "https://images.unsplash.com/photo-1585771507490-74e6a59e444d?w=400&h=300&fit=crop",
-    precio: "S/ 1,599.00"
+    slug: "bmw-m8",
+    nombre: "BMW M8 Competition",
+    marca: "BMW",
+    descripcion: "Gran turismo de lujo con motor V8 de 4.4L y 625 HP. Interior premium y tecnología M.",
+    imagen: "https://images.unsplash.com/photo-1555215695-3004980adade?w=800&h=600&fit=crop",
+    precio: "$ 146,000",
   },
 ];
 
